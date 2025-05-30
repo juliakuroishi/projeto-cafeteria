@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from './components/Header'; 
 import Cardapio from './components/Cardáprio';     
 import './App.css'; 
+import gatoNovelo from './assets/gatoNovelo.png';
 
 function App() {
   const [mostrarCardapio, setMostrarCardapio] = useState(false);
@@ -35,7 +36,10 @@ function App() {
           <button onClick={handleAcessarCardapio} className="action-button">
             Acessar cardápio
           </button>
+
         </section>
+
+        <img src={gatoNovelo} alt="Gato com novelo" className='imagem-home' />
         
       </div>
     
