@@ -1,0 +1,49 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Garante que o corpo ocupe toda a largura */
+  height: 100%; /* Opcional, mas bom para layouts que preenchem a tela */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+
+.logo-title-container {
+  display: flex; /* Ativa o Flexbox */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  gap: 10px; /* Adiciona um pequeno espaço entre a imagem e o texto (ajuste conforme necessário) */
+  /* Você pode adicionar 'justify-content: center;' se quiser que o conjunto (logo + título) fique centralizado dentro do app-header,
+     ou outras propriedades de justify-content (flex-start, flex-end, space-between)
+     dependendo de onde você quer que eles fiquem no header. */
+}
+
+.app-header {
+ width: 100%; /* Faz o header ocupar toda a largura da tela */
+  padding: 15px 10px;
+}
+
+.imagem-home{
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  position: fixed;
+}
