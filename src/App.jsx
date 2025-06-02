@@ -1,48 +1,60 @@
 // src/App.jsx
 import React, { useState } from 'react';
-import Header from './components/Header'; 
-import Cardapio from './components/Cardáprio';     
-import './App.css'; 
-import gatoNovelo from './assets/gatoNovelo.png';
+import Header from './components/Header'; // Ajuste o caminho se necessário
+import Cardapio from './Cardapio';       // Ajuste o caminho se necessário (se for manter)
+import Login from './Login';           // Importe o novo componente Login
+// import gatinhoEsquerda from './assets/gatinho_esquerda.png';
+// import gatinhoDireita from './assets/gatinho_direita.png';
+import './App.css';
 
 function App() {
-  const [mostrarCardapio, setMostrarCardapio] = useState(false);
+  // Estado para controlar a página atual: 'home', 'login', 'cardapio'
+  const [paginaAtual, setPaginaAtual] = useState('home');
 
-  // Função para mostrar o cardápio
-  const handleAcessarCardapio = () => {
-    setMostrarCardapio(true);
+  // Funções para navegar
+  const irParaLogin = () => {
+    setPaginaAtual('login');
   };
 
-  // Função para voltar para a home 
-  const handleVoltarHome = () => {
-    setMostrarCardapio(false);
+  const irParaCardapio = () => { // Se você quiser ter um botão para o cardápio em outro lugar
+    setPaginaAtual('cardapio');
   };
 
-  // Se mostrarCardapio for true, renderiza o componente Cardapio
-  if (mostrarCardapio) {
-    return <Cardapio onVoltar={handleVoltarHome} />;
+  const voltarParaHome = () => {
+    setPaginaAtual('home');
+  };
+
+  // Renderização condicional baseada no estado paginaAtual
+  if (paginaAtual === 'login') {
+    return <Login onVoltar={voltarParaHome} />;
   }
 
-  // Caso contrário, renderiza a tela inicial
+  if (paginaAtual === 'cardapio') {
+    return <Cardapio onVoltar={voltarParaHome} />;
+  }
+
+  // Renderiza a página Home por padrão
   return (
-    <div className="app-page-container"> 
+    <div className="app-page-container">
+      {/* <img src={gatinhoEsquerda} alt="Gatinho à esquerda" className="side-image left-image" /> */}
       
-      <div className="main-content-area"> {/* Conteúdo central da página */}
+      <div className="main-content-area">
         <Header />
         <section className="business-description" style={{ margin: '20px 0' }}>
           <p>Bem-vindo à nossa cafeteria, nyan :3</p>
         </section>
         <section className="action-button-section">
-          <button onClick={handleAcessarCardapio} className="action-button">
-            Acessar cardápio
+          {/* Botão principal agora leva para o Login */}
+          <button onClick={irParaLogin} className="action-button">
+            Acessar Dados
           </button>
-
+          
+          {/* Exemplo: Se você ainda quiser um botão para o cardápio em algum lugar */}
+          {/* <button onClick={irParaCardapio} style={{marginTop: '10px'}}>Ver Cardápio</button> */}
         </section>
-
-        <img src={gatoNovelo} alt="Gato com novelo" className='imagem-home' />
-        
       </div>
-    
+      
+      {/* <img src={gatinhoDireita} alt="Gatinho à direita" className="side-image right-image" /> */}
     </div>
   );
 }
